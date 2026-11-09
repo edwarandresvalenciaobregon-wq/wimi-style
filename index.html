@@ -1,8 +1,211 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101010"><title>WIMI STYLE | Ropa urbana</title><style>:root{font-family:system-ui,Arial,sans-serif;color:#f6f6f6;background:#101010}*{box-sizing:border-box}body{margin:0}header{background:#171717;border-bottom:1px solid #383838;padding:20px max(18px,calc((100vw - 1100px)/2));display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px}.brand img{width:66px;height:66px;object-fit:cover;object-position:center;border-radius:12px}h1{margin:0;font-size:27px;letter-spacing:2px}h1 span{color:#e12d3b}a{color:inherit;text-decoration:none}.insta{color:#c5c5c5}.wrap{max-width:1100px;margin:auto;padding:24px 18px}.hero{background:linear-gradient(125deg,#2d2d2d,#161616 60%,#57151c);border:1px solid #454545;border-radius:20px;padding:40px 24px;margin-bottom:24px}.hero-logo{display:block;width:min(100%,390px);height:280px;object-fit:contain;object-position:center;margin:0 auto 12px}.hero{text-align:center}.hero h2{font-size:clamp(28px,5vw,48px);margin:0 0 10px}.hero p{color:#c7c7c7}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}.filters button{background:#292929;color:white;border:1px solid #444;border-radius:24px;padding:10px 15px;cursor:pointer}.filters button.active{background:#d52335;border-color:#d52335}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}.product{background:#1d1d1d;border:1px solid #393939;border-radius:16px;overflow:hidden}.photo{height:230px;background:linear-gradient(145deg,#373737,#242424);display:grid;place-items:center;color:#aeb0b3;font-size:48px}.photo img{width:100%;height:100%;object-fit:cover}.details{padding:16px}.details h3{margin:0 0 7px}.price{font-size:23px;font-weight:800;margin:8px 0}.details small{color:#bbb}.buy{display:block;text-align:center;background:#15803d;border-radius:9px;padding:12px;margin-top:15px;font-weight:700}.empty{padding:35px;text-align:center;color:#aaa}footer{text-align:center;padding:35px;color:#aaa}@media(max-width:500px){header{padding:17px}h1{font-size:22px}.insta{font-size:13px}.hero{padding:26px 19px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.photo{height:155px}.details{padding:11px}.details h3{font-size:14px}.price{font-size:18px}.buy{font-size:12px;padding:10px 4px}}</style></head><body><header><div class="brand"><img src="logo-wimi.jpg" alt="Logo original WIMI"><h1>WIMI <span>STYLE</span></h1></div><a class="insta" href="https://instagram.com/style_wimi" target="_blank" rel="noopener">@style_wimi ↗</a></header><main class="wrap"><section class="hero"><img class="hero-logo" src="logo-wimi.jpg" alt="WIMI - El arte del buen vestir"><h2>Viste a tu estilo.</h2><p>El arte del buen vestir. Elige tu favorito y pide por WhatsApp.</p></section><h2>Nuestros productos</h2><nav class="filters" id="filters"></nav><div class="grid" id="products"></div></main><footer>WIMI STYLE · Pedidos por WhatsApp: +57 323 451 8033</footer><script>
-// EDITA AQUÍ tus productos. Pon tus fotos en la carpeta "fotos".
-// Ejemplo: {nombre:'Camiseta urbana negra',categoria:'Camisetas',precio:60000,tallas:'S, M, L, XL',foto:'fotos/camiseta-negra.jpg'}
-const productos = [
- {nombre:'Camiseta urbana Jordan mosaico',categoria:'Camisetas',precio:80000,tallas:'Consultar tallas disponibles',foto:'fotos/camiseta-jordan-mosaico.jpg'}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WIMI STYLE | Tienda de ropa urbana</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101010;color:#fff;font-family:Arial,sans-serif}
+header{background:#171717;padding:20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #444}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:65px;height:65px;object-fit:contain}
+h1{font-size:27px;letter-spacing:2px;margin:0}
+h1 span{color:#e12d3b}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:auto;padding:24px 18px}
+.hero{background:linear-gradient(125deg,#2d2d2d,#161616 60%,#57151c);border:1px solid #454545;border-radius:20px;padding:35px 20px;text-align:center;margin-bottom:25px}
+.hero img{display:block;width:min(100%,350px);height:260px;object-fit:contain;margin:auto}
+.hero h2{font-size:clamp(28px,5vw,48px);margin:10px 0}
+.hero p{color:#ccc}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}
+.filters button{background:#292929;color:white;border:1px solid #444;border-radius:25px;padding:11px 16px;cursor:pointer}
+.filters button.active{background:#d52335;border-color:#d52335}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.product{background:#1d1d1d;border:1px solid #393939;border-radius:16px;overflow:hidden}
+.photo{height:230px;background:#303030;display:grid;place-items:center}
+.photo img{width:100%;height:100%;object-fit:cover}
+.details{padding:16px}
+.details h3{margin:0 0 10px}
+.details small{color:#bbb;line-height:1.5}
+.price{font-size:23px;font-weight:bold;margin:12px 0}
+.buy{display:block;text-align:center;background:#15803d;border-radius:9px;padding:12px;margin-top:15px;font-weight:bold}
+.empty{grid-column:1/-1;text-align:center;padding:35px;color:#bbb}
+footer{text-align:center;padding:35px;color:#aaa}
+@media(max-width:500px){
+header{padding:15px}
+h1{font-size:22px}
+.hero img{height:210px}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.photo{height:155px}
+.details{padding:11px}
+.details h3{font-size:14px}
+.price{font-size:18px}
+.buy{font-size:12px;padding:10px 5px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="brand">
+<img src="logo-wimi.jpg" alt="Logo WIMI">
+<h1>WIMI <span>STYLE</span></h1>
+</div>
+<a href="https://www.instagram.com/style_wimi/" target="_blank" rel="noopener">@style_wimi</a>
+</header>
+
+<main class="wrap">
+<section class="hero">
+<img src="logo-wimi.jpg" alt="WIMI STYLE">
+<h2>Viste a tu estilo.</h2>
+<p>El arte del buen vestir. Elige tu favorito y pide por WhatsApp.</p>
+</section>
+
+<h2>Nuestros productos</h2>
+<nav class="filters" id="filters"></nav>
+<div class="grid" id="products">
+<div class="empty">Cargando productos...</div>
+</div>
+</main>
+
+<footer>
+WIMI STYLE · Pedidos por WhatsApp: +57 323 451 8033
+</footer>
+
+<script>
+const SUPABASE_URL =
+'https://tltuamysrgrswrtclosq.supabase.co';
+
+const SUPABASE_KEY =
+'sb_publishable_HYapg10H-uye0CDsRt7EtA_PH2TDgEw';
+
+const categorias = [
+'Todos',
+'Camisetas',
+'Jeans',
+'Gorras',
+'Pantalonetas',
+'Conjuntos'
 ];
-const categorias=['Todos','Camisetas','Jeans','Gorras','Pantalonetas','Conjuntos'];let actual='Todos';const pesos=n=>n?new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(n):'Consultar precio';const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));function render(){document.getElementById('filters').innerHTML=categorias.map(c=>`<button data-cat="${c}" class="${c===actual?'active':''}">${c}</button>`).join('');document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{actual=b.dataset.cat;render()});const arr=productos.filter(p=>actual==='Todos'||p.categoria===actual);document.getElementById('products').innerHTML=arr.length?arr.map(p=>{const mensaje=`Hola WIMI STYLE, quiero información sobre ${p.nombre}${p.precio?' de '+pesos(p.precio):''}. ¿Está disponible?`;const url='https://wa.me/573234518033?text='+encodeURIComponent(mensaje);return `<article class="product"><div class="photo">${p.foto?`<img src="${encodeURI(p.foto)}" alt="${escapeHTML(p.nombre)}">`:'✦'}</div><div class="details"><h3>${escapeHTML(p.nombre)}</h3><small>${escapeHTML(p.tallas)}</small><div class="price">${pesos(p.precio)}</div><a class="buy" href="${url}" target="_blank" rel="noopener">Pedir por WhatsApp</a></div></article>`}).join(''):'<div class="empty">Pronto tendremos productos en esta categoría.</div>'}render();
-</script></body></html>
+
+let actual = 'Todos';
+let productos = [];
+
+const pesos = n =>
+n ? new Intl.NumberFormat('es-CO',{
+style:'currency',
+currency:'COP',
+maximumFractionDigits:0
+}).format(n) : 'Consultar precio';
+
+function escapar(valor){
+return String(valor ?? '').replace(/[&<>"']/g,c=>({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
+}[c]));
+}
+
+function mostrarProductos(){
+
+const filtros = document.getElementById('filters');
+
+filtros.innerHTML = categorias.map(c=>`
+<button data-cat="${c}" class="${c===actual?'active':''}">
+${c}
+</button>
+`).join('');
+
+filtros.querySelectorAll('button').forEach(b=>{
+b.onclick=()=>{
+actual=b.dataset.cat;
+mostrarProductos();
+};
+});
+
+const lista=productos.filter(p=>
+actual==='Todos' || p.categoria===actual
+);
+
+const contenedor=document.getElementById('products');
+
+if(!lista.length){
+contenedor.innerHTML='<div class="empty">No hay productos en esta categoría.</div>';
+return;
+}
+
+contenedor.innerHTML=lista.map(p=>{
+
+const mensaje=`Hola WIMI STYLE, quiero información sobre ${p.nombre}. Precio: ${pesos(p.precio)}. ¿Está disponible?`;
+
+const whatsapp='https://wa.me/573234518033?text='+
+encodeURIComponent(mensaje);
+
+return `
+<article class="product">
+<div class="photo">
+${p.foto
+? `<img src="${escapar(p.foto)}" alt="${escapar(p.nombre)}" loading="lazy">`
+: 'Sin imagen'}
+</div>
+<div class="details">
+<h3>${escapar(p.nombre)}</h3>
+<small>${escapar(p.descripcion)}</small>
+<div class="price">${pesos(p.precio)}</div>
+<a class="buy" href="${whatsapp}" target="_blank" rel="noopener">
+Pedir por WhatsApp
+</a>
+</div>
+</article>
+`;
+
+}).join('');
+}
+
+async function cargarProductos(){
+
+try{
+
+const respuesta=await fetch(
+SUPABASE_URL+'/rest/v1/productos?select=*&order=created_at.desc',
+{
+headers:{
+'apikey':SUPABASE_KEY
+}
+}
+);
+
+if(!respuesta.ok){
+throw new Error('Error al consultar Supabase: '+respuesta.status);
+}
+
+const datos=await respuesta.json();
+
+productos=datos.map(p=>({
+nombre:p.nombre || 'Producto',
+categoria:p.categoria || 'Camisetas',
+precio:Number(p.precio)||0,
+descripcion:p.descripcion || 'Consultar disponibilidad',
+foto:p.imagen_url || ''
+}));
+
+mostrarProductos();
+
+}catch(error){
+
+console.error(error);
+
+document.getElementById('products').innerHTML=
+'<div class="empty">No se pudieron cargar los productos. Revisa la conexión con Supabase.</div>';
+
+}
+}
+
+cargarProductos();
+</script>
+</body>
+</html>

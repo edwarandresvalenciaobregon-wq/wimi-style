@@ -1,62 +1,158 @@
-.logo-wrap{
-  width:210px;
-  margin:0 auto 18px;
-  position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WIMI STYLE | Navidad</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--red:#e41b38}
+body{margin:0;background:radial-gradient(ellipse at 88% 9%,#310910,transparent 42%),#0d0d10;color:white;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.top{background:#151416;border-bottom:1px solid #43242b;padding:12px max(4%,18px);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.top-brand{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:800;letter-spacing:1px}
+.top-brand img{width:53px;height:53px;object-fit:cover;border-radius:5px}
+.top-brand span{color:#ff4159}
+.top a{font-size:14px;color:#eee}
+.container{max-width:1140px;margin:auto;padding:26px 18px}
+.hero{position:relative;isolation:isolate;min-height:555px;border:1px solid #753a46;border-radius:24px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:88px 20px 65px;margin-bottom:36px;background:radial-gradient(ellipse at 86% 80%,#67101c,transparent 55%),linear-gradient(115deg,#1b1b1e,#09090d 65%,#28080e);box-shadow:0 20px 45px #0008,inset 0 0 25px #f8fafc22}
+.hero:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;border-radius:24px;box-shadow:inset 0 4px 8px #ffffff88,inset 0 -6px 9px #d4e8ef55}
+.hero:after{content:"";position:absolute;left:0;top:0;width:100%;height:13px;background:linear-gradient(#e7f8ffbd,transparent);opacity:.9}
+.lights{position:absolute;top:25px;left:7%;width:86%;height:28px;border-top:2px solid #4d4645;border-radius:50% 50% 0 0;display:flex;justify-content:space-between;z-index:6}
+.lights i{position:relative;top:8px;width:10px;height:17px;background:#ff2e49;border-radius:50%;box-shadow:0 0 10px #ff2e49,0 0 20px #ff2e49;animation:glow 1.5s infinite alternate}
+.lights i:nth-child(3n){background:#ffe089;box-shadow:0 0 11px #ffda6f,0 0 21px #ffce59;animation-delay:.4s}
+.lights i:nth-child(3n+2){background:#fff8e2;box-shadow:0 0 11px #fff8e2,0 0 20px #fff2bd;animation-delay:1s}
+@keyframes glow{from{opacity:.4}to{opacity:1}}
+.branch{position:absolute;top:30px;font-size:54px;z-index:5;filter:drop-shadow(0 4px 5px #000a)}.branch.left{left:9px}.branch.right{right:9px;transform:scaleX(-1)}
+.hero-body{position:relative;z-index:4;width:100%;max-width:780px}
+.logo-holder{position:relative;width:270px;height:275px;margin:0 auto 16px;display:grid;place-items:center}
+.logo-art{position:relative;width:250px;height:250px;overflow:hidden;background:#050505;border:1px solid #ffffff12;border-radius:12px;box-shadow:0 14px 28px #0009,inset 0 0 18px #ffffff0c}
+/* El JPG original contiene un gran margen negro: se centra y recorta sin modificar el diseño. */
+.logo-art img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:250px;height:auto;max-width:none;display:block;filter:drop-shadow(0 3px 7px #0007)}
+.santa{position:absolute;z-index:5;top:12px;right:18px;width:57px;height:36px;transform:rotate(15deg);background:linear-gradient(145deg,#ff2a45,#bb0b26);border-radius:85% 18% 10% 7%;box-shadow:inset -6px 3px 7px #79091d,0 3px 7px #0008}
+.santa:before{content:"";position:absolute;left:-3px;bottom:-3px;width:59px;height:12px;background:linear-gradient(#fff,#eee);border-radius:25px;box-shadow:0 2px 4px #0006}
+.santa:after{content:"";position:absolute;right:-8px;top:19px;width:17px;height:17px;background:#fff;border-radius:50%;box-shadow:0 2px 5px #fff5}
+.hero h1{font-size:clamp(32px,5vw,52px);margin:0 0 6px;font-weight:800;letter-spacing:-1px;text-shadow:0 3px 7px #0008}
+.stroke{width:240px;max-width:60%;height:8px;margin:0 auto 19px;background:var(--red);clip-path:polygon(0 60%,100% 0,91% 80%,0 100%);transform:rotate(-2deg)}
+.hero p{color:#eee;font-size:clamp(14px,2vw,18px);line-height:1.6;margin:0}
+.gifts{position:absolute;bottom:17px;left:22px;font-size:75px;z-index:2;filter:drop-shadow(0 7px 10px #0009)}
+.baubles{position:absolute;bottom:18px;right:30px;font-size:65px;z-index:2;filter:drop-shadow(0 5px 10px #0009)}
+.snowline{position:absolute;bottom:0;left:0;right:0;height:14px;background:linear-gradient(transparent,#dfedf69c);filter:blur(5px)}
+.section-title{font-size:26px;margin:0 0 18px}
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
+.filters button{border:1px solid #484848;background:#29292b;color:#fff;border-radius:28px;padding:12px 17px;cursor:pointer;font-weight:700}
+.filters button.active,.filters button:hover{background:var(--red);border-color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.card{overflow:hidden;border-radius:17px;background:#1d1c20;border:1px solid #473038;display:flex;flex-direction:column}
+.card-photo{height:232px;background:#303034;position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#ddd}
+.card-photo img{width:100%;height:100%;object-fit:cover}
+.card-photo em{position:absolute;bottom:8px;right:8px;background:#000b;color:white;font-style:normal;font-size:11px;padding:6px 8px;border-radius:12px}
+.info{padding:15px;flex:1;display:flex;flex-direction:column}
+.info h3{margin:0 0 9px;font-size:18px}.info p{margin:0;color:#bbb;font-size:13px;line-height:1.5}
+.price{font-size:22px;font-weight:800;margin:14px 0}
+.buy{background:#16813f;border-radius:9px;padding:12px 9px;text-align:center;font-weight:700;margin-top:auto}
+.empty{text-align:center;color:#ddd;grid-column:1/-1;padding:36px}
+footer{text-align:center;padding:30px;color:#bbb;border-top:1px solid #342c30;margin-top:30px}
+#snow{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:10}
+#snow span{position:absolute;top:-25px;color:#f5fbff;text-shadow:0 0 6px #fff8;animation:fall linear infinite}
+@keyframes fall{to{transform:translate3d(35px,110vh,0)}}
+.viewer{display:none;position:fixed;inset:0;z-index:50;background:#000f;padding:48px 10px 25px;align-items:center;justify-content:center;flex-direction:column}
+.viewer.open{display:flex}.viewer img{max-width:90vw;max-height:75vh;object-fit:contain}
+.viewer .close{position:absolute;right:16px;top:14px;background:#333;border:0;color:white;border-radius:50%;font-size:27px;width:42px;height:42px;cursor:pointer}
+.viewer .controls{display:flex;align-items:center;gap:18px;margin-top:17px}
+.viewer .controls button{background:#e41b38;border:0;border-radius:20px;padding:10px 16px;color:white;cursor:pointer;font-size:17px}
+@media(max-width:600px){.container{padding:17px 11px}.hero{min-height:480px;padding:72px 15px 75px}.top-brand{font-size:17px}.top-brand img{width:43px;height:43px}.logo-holder{width:210px;height:215px}.logo-art{width:200px;height:200px}.logo-art img{width:200px}.santa{top:10px;right:10px;width:46px;height:29px}.santa:before{width:47px;height:10px}.santa:after{width:14px;height:14px;top:15px;right:-7px}.gifts,.baubles{font-size:39px}.gifts{left:10px}.baubles{right:10px}.branch{font-size:32px}.lights{left:5%;width:90%}.lights i{width:7px;height:13px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card-photo{height:155px}.info{padding:10px}.info h3{font-size:14px}.info p{font-size:11px}.price{font-size:17px}.buy{font-size:12px;padding:10px 4px}}
+@media(prefers-reduced-motion:reduce){#snow span,.lights i{animation:none}}
+</style>
+</head>
+<body>
+<div id="snow" aria-hidden="true"></div>
+<header class="top">
+  <div class="top-brand"><img src="./logo-wimi.jpg" alt="Logo WIMI"><div>WIMI <span>STYLE</span></div></div>
+  <a href="https://www.instagram.com/style_wimi/" target="_blank" rel="noopener">@style_wimi</a>
+</header>
+<main class="container">
+  <section class="hero">
+    <div class="lights" id="lights" aria-hidden="true"></div>
+    <span class="branch left" aria-hidden="true">🌿</span><span class="branch right" aria-hidden="true">🌿</span>
+    <span class="gifts" aria-hidden="true">🎁 🎀</span><span class="baubles" aria-hidden="true">🔴 ❄️</span>
+    <div class="hero-body">
+      <div class="logo-holder"><div class="logo-art"><img src="./logo-wimi.jpg" alt="Muñeco y logo original WIMI STYLE"></div><span class="santa" aria-hidden="true"></span></div>
+      <h1>Viste a tu estilo.</h1><div class="stroke"></div>
+      <p>El arte del buen vestir. Elige tu favorito y pide por WhatsApp.</p>
+    </div>
+    <span class="snowline" aria-hidden="true"></span>
+  </section>
+  <h2 class="section-title">🎄 Nuestros productos</h2>
+  <nav class="filters" id="filters" aria-label="Categorías"></nav>
+  <section class="grid" id="products"><div class="empty">Cargando productos...</div></section>
+</main>
+<footer>❄️ WIMI STYLE · Navidad 2026 · WhatsApp: 323 451 8033 🎄</footer>
+<div class="viewer" id="viewer" role="dialog" aria-label="Fotos del producto" aria-modal="true">
+  <button class="close" id="close" aria-label="Cerrar">×</button>
+  <img id="big-photo" alt="Fotografía del producto">
+  <div class="controls"><button id="prev" aria-label="Anterior">❮</button><span id="count"></span><button id="next" aria-label="Siguiente">❯</button></div>
+</div>
+<script>
+// Clave pública de lectura del catálogo WIMI STYLE.
+const SUPABASE_URL = 'https://tltuamysrgrswrtclosq.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_HYapg10H-uye0CDsRt7EtA_PH2TDgEw';
+const CATS = ['Todos','Camisetas','Jeans','Gorras','Pantalonetas','Conjuntos'];
+let products = [], currentCat = 'Todos', gallery = [], photoNum = 0;
+const el = id => document.getElementById(id);
+const esc = x => String(x ?? '').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const price = n => Number(n)>0 ? new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(Number(n)) : 'Consultar precio';
+function images(p){
+  let extra = p.imagenes || [];
+  if(typeof extra === 'string'){try{extra=JSON.parse(extra)}catch{extra=extra.split(/[\n,]+/)}}
+  if(!Array.isArray(extra)) extra=[];
+  return [...new Set([p.imagen_url,...extra].filter(x=>typeof x==='string'&&x.trim()).map(x=>x.trim()))].filter(x=>!/^javascript:|^data:/i.test(x));
 }
-.logo-card{
-  width:150px;
-  height:240px;
-  background:#050505;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 12px 30px #000a, inset 0 0 14px #ffffff12;
-  border:1px solid #2a2a2a;
-  position:relative;
+function draw(){
+  el('filters').innerHTML=CATS.map(c=>`<button class="${currentCat===c?'active':''}" data-cat="${c}">${c}</button>`).join('');
+  el('filters').querySelectorAll('button').forEach(b=>b.onclick=()=>{currentCat=b.dataset.cat;draw()});
+  let visible=products.filter(p=>currentCat==='Todos'||String(p.categoria||'').toLowerCase()===currentCat.toLowerCase());
+  if(!visible.length){el('products').innerHTML='<div class="empty">No hay productos en esta categoría.</div>';return}
+  el('products').innerHTML=visible.map((p,i)=>{
+    let fotos=images(p);
+    let msg=`Hola WIMI STYLE, quiero pedir ${p.nombre}. Precio: ${price(p.precio)}. ¿Está disponible?`;
+    return `<article class="card"><div class="card-photo" data-n="${i}" role="button" tabindex="0" aria-label="Ver fotos de ${esc(p.nombre)}">
+      ${fotos.length?`<img src="${esc(fotos[0])}" loading="lazy" alt="${esc(p.nombre)}"><em>${fotos.length>1?fotos.length+' fotos · Ver':'Ver foto +'}</em>`:'Sin imagen'}
+      </div><div class="info"><h3>${esc(p.nombre)}</h3><p>${esc(p.descripcion||'')}</p><div class="price">${price(p.precio)}</div>
+      <a class="buy" href="https://wa.me/573234518033?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">Pedir por WhatsApp</a></div></article>`;
+  }).join('');
+  el('products').querySelectorAll('.card-photo').forEach(box=>{
+    let p=visible[Number(box.dataset.n)];
+    box.onclick=()=>openPhotos(p);
+    box.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPhotos(p)}};
+  });
 }
-.logo-card img{
-  width:125px;
-  height:auto;
-  object-fit:contain;
-  display:block;
-  filter:drop-shadow(0 8px 12px #0009);
+function openPhotos(p){gallery=images(p);if(!gallery.length)return;photoNum=0;el('viewer').classList.add('open');document.body.style.overflow='hidden';showPhoto();el('close').focus()}
+function showPhoto(){el('big-photo').src=gallery[photoNum];el('count').textContent=`${photoNum+1} / ${gallery.length}`}
+function nextPhoto(shift){if(!gallery.length)return;photoNum=(photoNum+shift+gallery.length)%gallery.length;showPhoto()}
+function closePhotos(){el('viewer').classList.remove('open');document.body.style.overflow='';gallery=[]}
+el('close').onclick=closePhotos;el('prev').onclick=()=>nextPhoto(-1);el('next').onclick=()=>nextPhoto(1);
+el('viewer').onclick=e=>{if(e.target===el('viewer'))closePhotos()};
+document.addEventListener('keydown',e=>{if(!el('viewer').classList.contains('open'))return;if(e.key==='Escape')closePhotos();if(e.key==='ArrowLeft')nextPhoto(-1);if(e.key==='ArrowRight')nextPhoto(1)});
+async function loadProducts(){
+  try{
+    let r=await fetch(SUPABASE_URL+'/rest/v1/productos?select=*&order=created_at.desc',{headers:{'apikey':SUPABASE_KEY}});
+    if(!r.ok)throw new Error('Supabase '+r.status);
+    products=(await r.json()).map(p=>({nombre:p.nombre||'Producto',precio:p.precio||0,categoria:p.categoria||'Camisetas',descripcion:p.descripcion||'',imagen_url:p.imagen_url||'',imagenes:p.imagenes||[]}));
+    draw();
+  }catch(e){console.error(e);el('products').innerHTML='<div class="empty">No se pudieron cargar los productos. Revisa Supabase.</div>'}
 }
-.hat{
-  position:absolute;
-  top:-10px;
-  right:18px;
-  width:92px;
-  height:58px;
-  background:var(--rojo);
-  border-radius:85% 15% 8% 9%;
-  transform:rotate(14deg);
-  box-shadow:inset -9px 3px 12px #8d0b24;
-  z-index:4
+// Luces de Navidad y nieve animada.
+for(let i=0;i<17;i++)el('lights').appendChild(document.createElement('i'));
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  for(let i=0;i<48;i++){
+    let s=document.createElement('span');s.textContent=i%4===0?'❄':'•';
+    s.style.left=Math.random()*100+'%';s.style.fontSize=(8+Math.random()*10)+'px';
+    s.style.animationDuration=(7+Math.random()*11)+'s';s.style.animationDelay=(-Math.random()*18)+'s';
+    el('snow').appendChild(s);
+  }
 }
-.hat:before{
-  content:"";
-  position:absolute;
-  left:-5px;
-  bottom:-2px;
-  width:88px;
-  height:18px;
-  background:#fff;
-  border-radius:40px;
-  transform:rotate(-5deg);
-  box-shadow:0 3px 6px #0005
-}
-.hat:after{
-  content:"";
-  position:absolute;
-  right:-12px;
-  top:27px;
-  width:25px;
-  height:25px;
-  border-radius:50%;
-  background:#fff;
-  box-shadow:0 2px 8px #fff8
-}
+loadProducts();
+</script>
+</body>
+</html>
